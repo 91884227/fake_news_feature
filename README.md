@@ -3,9 +3,34 @@
 ###### tags: `README`
 
 
+# Quantity.py
+> 目前只用 \u200b 來分段 需要再改進。
+
+
+
+* USAGE
+```python
+from Quantity import article
+quantity = article()
+quantity("我不相信Y") 
+```
+
+```python
+RETURN:
+{'character_num': 5,
+ 'paragraph_num': 1,
+ 'sentence_num': 1,
+ 'token_num': 4,
+ 'paragraph_word_avg': 5.0,
+ 'paragraph_token_avg': 4.0,
+ 'token_len_avg': 1.25,
+ 'sentence_token_avg': 4.0}
+```
+
+
 # ckip.py
 > 計算input 內 聳動pattern 的數量
-> 需要再改進
+> 需要再改進pattern
 
 ```python
 from clickbait_pattern import clickbait_pattern
