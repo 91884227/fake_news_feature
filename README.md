@@ -2,6 +2,22 @@
 
 ###### tags: `README`
 
+
+# Punctuation.py
+
+* usage
+
+```python
+from Punctuation import Punctuation
+punctuation = Punctuation()
+punctuation("you suck  !!!!!!!【「")
+```
+
+```python
+# return
+{'#!': 7, '#...': 0, '# ?': 0, '# ~': 0, '# 「': 2, '# total': 9}
+```
+
 # Informality.py
 * usage
 ```python
