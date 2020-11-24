@@ -13,5 +13,5 @@ class clickbait_pattern:
     def __call__(self, str_):
         assert type(str_) == str, "input 要是 string"
         buf = [1 for i in self.clickbait_data if i in str_]    
-        return( sum(buf) )
+        return( {"clickbait_pattern":sum(buf)} )
     
