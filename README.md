@@ -28,14 +28,15 @@ RETURN:
 ```
 
 
-# ckip.py
+# clickbait_pattern.py
 > 計算input 內 聳動pattern 的數量
 > 需要再改進pattern
 
 ```python
 from clickbait_pattern import clickbait_pattern
 clickbait_p = clickbait_pattern()
-clickbait_p("我不相信你") # 0
+clickbait_p("你不可不知的38個")
+# {'clickbait_pattern': 2}
 ```
 
 # ckip.py
