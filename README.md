@@ -2,11 +2,19 @@
 
 ###### tags: `README`
 
+# Informality.py
+* usage
+```python
+from Informality import Swear_words, Netspeak
+swear_words = Swear_words()
+netspeak = Netspeak()
+
+swear_words("靠腰食潲") # {'swear_words': 2}
+netspeak("GG948794狂") # {'Netspeaks': 3}
+```
 
 # Quantity.py
 > 目前只用 \u200b 來分段 需要再改進。
-
-
 
 * USAGE
 ```python
