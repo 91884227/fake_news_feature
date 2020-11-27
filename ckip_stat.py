@@ -1,10 +1,14 @@
+#!/usr/bin/env python
+# coding: utf-8
+
 import os
 from collections import Counter
 import json
+import numpy as np
 
 from ckip import ckip
 
-class ckip_static(ckip):
+class ckip_static(ckip):  
     def __init__(self):
         assert os.path.exists("pos_dictionary.json"), "pos_dictionary.json不在同目錄"
         assert os.path.exists("ner_dictionary.json"), "ner_dictionary.json不在同目錄"
@@ -16,6 +20,35 @@ class ckip_static(ckip):
             self.ori_ner_dict = json.load(json_file)
             
         super().__init__()
+    
+    def __call__(self, str_):
+        self.segmentation(str_)
+        self.pos_stat()
+        self.avg_pos_count_dict = self.dict_normalize(self.pos_count_dict)
+        
+        self.pos_adv_stat()
+        self.avg_pos_adv_count_dict = self.dict_normalize(self.pos_adv_count_dict)
+        
+        self.ner_stat()
+        self.avg_ner_count_dict = self.dict_normalize(self.ner_count_dict)
+        
+        buf = {}
+        buf.update(self.pos_count_dict)
+        buf.update(self.avg_pos_count_dict)
+        buf.update(self.pos_adv_count_dict)
+        buf.update(self.avg_pos_adv_count_dict)
+        buf.update(self.ner_count_dict)
+        buf.update(self.avg_ner_count_dict)
+        return(buf)
+        
+    def dict_normalize(self, dict_):
+        value = np.array(list(dict_.values()))
+        keys = ["<0-1> %s" % i for i in list(dict_.keys())]
+        if( sum(value) > 0):
+            value = value/sum(value)
+            return( dict(zip(keys, value)) )
+        else:
+            return( dict(zip(keys, value)) )
     
     def pos_stat(self):
         self.pos_count_dict = self.ori_pos_dict.copy()
