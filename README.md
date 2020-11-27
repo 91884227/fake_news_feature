@@ -2,6 +2,9 @@
 
 ###### tags: `README`
 
+# ckip_stat.py
+pass 
+
 
 # Punctuation.py
 
@@ -68,8 +71,10 @@ clickbait_p("你不可不知的38個")
 ```python=
 from ckip import ckip
 ckip_class = ckip()
-ckip_class("我不相信你") 
-# {'ws': ['我', '不', '相信', '你'], 'pos': ['Nh', 'D', 'VK', 'Nh'], 'ner': set()}
+ckip_class.segmentation("三點你去你的台北")
+# {'ws': ['三點', '你', '去', '你', '的', '台北'],
+# 'pos': ['Nd', 'Nh', 'VCL', 'Nh', 'DE', 'Nc'],
+# 'ner': {(0, 2, 'TIME', '三點'), (6, 8, 'GPE', '台北')}}
 ```
 
 
