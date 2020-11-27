@@ -3,7 +3,16 @@
 ###### tags: `README`
 
 # ckip_stat.py
-pass 
+* usage
+```python
+from ckip_stat import ckip_static
+test = ckip_static()
+test("三點你去你的台北")
+```
+```python
+# return:
+# { 'GPE': 1, 'PERSON': 0, ...}
+```
 
 
 # Punctuation.py
