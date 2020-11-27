@@ -21,8 +21,9 @@ class ckip:
         self.ws = WS("./ckiptagger_data")
         self.pos = POS("./ckiptagger_data")
         self.ner = NER("./ckiptagger_data")
-        clear_output()  
-    def __call__(self, str_):
+        clear_output() 
+        
+    def segmentation(self, str_):
         assert type(str_) == str, "input 要是 string"
         self.word_sentence_list = self.ws([str_])
         self.pos_sentence_list = self.pos(self.word_sentence_list)
