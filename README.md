@@ -3,6 +3,8 @@
 ###### tags: `README`
 
 # ckip_stat.py
+> output 包含 BOW NER POS 的 feature
+
 * usage
 ```python
 from ckip_stat import ckip_static
