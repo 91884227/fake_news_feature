@@ -9,30 +9,49 @@ import numpy as np
 from ckip import ckip
 
 class ckip_static(ckip):  
-    def __init__(self):
-        assert os.path.exists("pos_dictionary.json"), "pos_dictionary.json不在同目錄"
-        assert os.path.exists("ner_dictionary.json"), "ner_dictionary.json不在同目錄"
+    def __init__(self, dic_name_ = "華語八千詞表_dictionary.json"):
+        # BOW part
+        self.dic_name = dic_name_
+        assert os.path.exists("./%s" % self.dic_name), "%s 不在同目錄" % self.dic_name
+        with open(self.dic_name) as json_file:
+            self.BOW_dict = json.load(json_file)
         
+        self.BOW_dict["<UNK>"] = 0        
+        
+        # pos part
+        assert os.path.exists("pos_dictionary.json"), "pos_dictionary.json不在同目錄"
         with open('pos_dictionary.json') as json_file:
-            self.ori_pos_dict = json.load(json_file)
-            
+            self.ori_pos_dict = json.load(json_file)        
+        
+        # ner part
+        assert os.path.exists("ner_dictionary.json"), "ner_dictionary.json不在同目錄"            
         with open('ner_dictionary.json') as json_file:
             self.ori_ner_dict = json.load(json_file)
             
+        # ckip intitial
         super().__init__()
     
     def __call__(self, str_):
+        #　segment part
         self.segmentation(str_)
+        
+        # BOW part
+        self.upload_BOW()
+        
+        # pos part 
         self.pos_stat()
         self.avg_pos_count_dict = self.dict_normalize(self.pos_count_dict)
         
         self.pos_adv_stat()
         self.avg_pos_adv_count_dict = self.dict_normalize(self.pos_adv_count_dict)
         
+        # ner part 
         self.ner_stat()
         self.avg_ner_count_dict = self.dict_normalize(self.ner_count_dict)
         
+        # update part
         buf = {}
+        buf.update(self.BOW_dict)
         buf.update(self.pos_count_dict)
         buf.update(self.avg_pos_count_dict)
         buf.update(self.pos_adv_count_dict)
@@ -40,6 +59,15 @@ class ckip_static(ckip):
         buf.update(self.ner_count_dict)
         buf.update(self.avg_ner_count_dict)
         return(buf)
+    
+    def upload_BOW(self):
+        dict1 = dict(Counter(self.word_sentence_list[0]))
+        
+        for key in dict1:
+            if key in self.BOW_dict:
+                self.BOW_dict[key] = dict1[key]        
+            else:
+                self.BOW_dict["<UNK>"] = self.BOW_dict["<UNK>"] + 1        
         
     def dict_normalize(self, dict_):
         value = np.array(list(dict_.values()))
