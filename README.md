@@ -8,13 +8,21 @@
 * usage
 ```python
 from ckip_stat import ckip_static
-test = ckip_static()
+test = ckip_static() # 預設: 華語八千詞表_dictionary.json 
+
 test("三點你去你的台北")
 ```
 ```python
 # return:
 # { 'GPE': 1, 'PERSON': 0, ...}
 ```
+
+* dictionary 可改成以下:
+
+| Column 1 | Column 2 | 
+| -------- | -------- | 
+| 華語八千詞表_dictionary.json     | Text     |
+| pts_8000_dictionary.json     | Text     |
 
 
 # Punctuation.py
