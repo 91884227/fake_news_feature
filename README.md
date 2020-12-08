@@ -2,6 +2,24 @@
 
 ###### tags: `README`
 
+
+# GPT2_generate_text.py
+* usage
+```python
+python GPT2_generate_text.py [--titlefile] [--savename][--limit][--TLUB][--TLLB][--Start]
+```
+* parameter
+
+| parameter | 說明 | e.g. |
+| -------- | -------- | -------- |
+| titlefile     | 標題黨的檔案位置   | Text     |
+| savename     | 儲存的黨名     | Text     |
+| limit     | 最多做幾筆資料    | 10    |
+| TLUB     | GPT2生成文章的最短長度     | 50     |
+| TLLB     | GPT2生成文章的最長長度    | 100     |
+| Start     | 資料要從哪一筆開始做     | 1000     |
+
+
 # GPT2_crawler.py
 * usage
 ```python
