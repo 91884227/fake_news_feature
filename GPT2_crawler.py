@@ -1,7 +1,8 @@
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 import time
 import os
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.firefox.options import Options
 
 
 class GP2_crawler:
@@ -9,12 +10,15 @@ class GP2_crawler:
         assert os.path.exists('./geckodriver'), "geckodriver不在同目錄"
 #         options = Options()
 #         options.add_argument("--disable-notifications")
-        self.browser = webdriver.Firefox(executable_path="./geckodriver")
+        opts = Options()
+        opts.set_headless(headless=True)
+        self.browser = webdriver.Firefox(options = opts, executable_path="./geckodriver")
         self.URL = "http://server-a1.ddns.net:5153/"
         # self.browser.get(self.URL)
         self.timesleep = timesleep 
     
     def __del__(self):
+        self.browser.close()
         self.browser.quit()
     
     def __call__(self, str_, length_ = 600):
