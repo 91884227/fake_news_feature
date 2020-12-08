@@ -2,6 +2,14 @@
 
 ###### tags: `README`
 
+# GPT2_crawler.py
+* usage
+```python
+from GPT2_crawler import GP2_crawler, strB2Q
+test = GP2_crawler()
+```
+
+
 # ckip_stat.py
 > output 包含 BOW NER POS 的 feature
 
