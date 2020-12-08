@@ -16,6 +16,7 @@ parser.add_argument("--savename", default = "cts", type = str)
 parser.add_argument("--limit", default = None, type = int)
 parser.add_argument("--TLUB", default = 500, type = int)
 parser.add_argument("--TLLB", default = 900, type = int)
+parser.add_argument("--Start", default = 0, type = int)
 
 args = parser.parse_args()
 
@@ -34,7 +35,7 @@ GP2_generator = GP2_crawler()
 buf = []
 count = 0
 
-for i in tqdm(data):
+for i in tqdm(data[args.Start:]):
     if( type(args.limit) != int or  count < args.limit):
         count = count + 1
     else:
