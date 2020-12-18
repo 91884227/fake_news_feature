@@ -2,6 +2,14 @@
 
 ###### tags: `README`
 
+# emotional_score.py
+* usage
+```python
+from emotional_score import emotional_score
+test = emotional_score()
+test("你去吃大便") # -0.2041
+```
+
 
 # GPT2_generate_text.py
 * usage
