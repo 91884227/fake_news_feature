@@ -2,6 +2,19 @@
 
 ###### tags: `README`
 
+# generate_SVM_data.py
+在  /SVM判別器資料 下生成 /Size_num的資料夾
+內含 X_test X_train y_train y_test
+* usage
+```python
+python generate_SVM_data.py [--num num] 
+```
+| parameter | 說明 | e.g. |
+| -------- | -------- | -------- |
+| num     | 資料大小   | 100   |
+
+* 附註 目前因GPT資料最大為6000 故NUM 設定最多為6000
+
 # emotional_score.py
 * usage
 ```python
@@ -9,7 +22,6 @@ from emotional_score import emotional_score
 test = emotional_score()
 test("你去吃大便") # -0.2041
 ```
-
 
 # GPT2_generate_text.py
 * usage
