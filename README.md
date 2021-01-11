@@ -20,7 +20,7 @@ python generate_SVM_data.py [--num num]
 ```python
 from emotional_score import emotional_score
 test = emotional_score()
-test("你去吃大便") # -0.2041
+test("你去吃大便") # {"emotional score": 0.12}
 ```
 
 # GPT2_generate_text.py
