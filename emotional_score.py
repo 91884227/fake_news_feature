@@ -9,5 +9,5 @@ class emotional_score:
         query = {'document': str_}
         response = requests.post(self.url, json = query).json()
         score = float(response['score'])
-        return(score)
+        return({"emotional score": score})
                 
