@@ -2,6 +2,20 @@
 
 ###### tags: `README`
 
+# transfer_to_numeric_feature.py
+檔案在 ./SVM模型 下
+
+將放在 SVM判別器的資料 做 feature engineering
+
+* usage
+```python
+python generate_SVM_data.py [--d datafolder] [--B ifBOW] [--test Bool] 
+```
+| parameter | 說明 | e.g. |
+| -------- | -------- | -------- |
+| d    | 資料集名稱 (需放在)   |  Size_50  |
+| B    | 是否用 Bag-of-word Feature   | False   |
+| test   | 是否為測試   | False   |
 
 # SVM_feature_engineering.py
 檔案在 ./SVM模型 下
