@@ -38,9 +38,15 @@ gpt_data = random.choices(gpt_data, k=args.num//2)
 # extrace body
 real_data = [i["body"] for i in real_data]
 
+# delete data that len() < 150
+real_data = [i for i in real_data if( len(i) > 150)]
+gpt_data = [i for i in gpt_data if( len(i) > 150)]
+
 # Generate X&y
 X = real_data + gpt_data
-y = [0]*(args.num//2) + [1]*(args.num//2)
+#y = [0]*(args.num//2) + [1]*(args.num//2)
+y = [0]*(len(real_data)) + [1]*(len(gpt_data))
+
 X_train, X_test, y_train, y_test = train_test_split(
 X, y, test_size=0.2, random_state=42)
 
