@@ -2,6 +2,17 @@
 
 ###### tags: `README`
 
+
+# SVM_feature_engineering.py
+檔案在 ./SVM模型 下
+* usage
+```python
+from SVM_feature_engineering import feature_class
+test = feature_class(ifBOW = False) # Ture if you want to use BAG-OF-WORD Fearure
+buf_i = test("測試用") # 輸出list
+buf_i.index_dict # index 和 feature 對應的 dictionary
+```
+
 # generate_SVM_data.py
 在  /SVM判別器資料 下生成 /Size_num的資料夾
 內含 X_test X_train y_train y_test
