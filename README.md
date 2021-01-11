@@ -9,7 +9,7 @@
 
 * usage
 ```python
-python generate_SVM_data.py [--d datafolder] [--B ifBOW] [--test Bool] 
+python transfer_to_numeric_feature.py [--d datafolder] [--B ifBOW] [--test Bool] 
 ```
 | parameter | 說明 | e.g. |
 | -------- | -------- | -------- |
