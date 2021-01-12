@@ -6,8 +6,12 @@ class emotional_score:
     
     def __call__(self, str_):
         assert type(str_)==str, "input 要是 str"
-        query = {'document': str_}
-        response = requests.post(self.url, json = query).json()
-        score = float(response['score'])
-        return({"emotional score": score})
+        
+        try:
+            query = {'document': str_}
+            response = requests.post(self.url, json = query).json()
+            score = float(response['score'])
+            return({"emotional score": score})
+        except:
+            return({"emotional score": 0})
                 
