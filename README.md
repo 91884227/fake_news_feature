@@ -2,13 +2,24 @@
 
 ###### tags: `README`
 
+# generate_SVM_farm_data.py
+檔案在 ./SVM判別器農場資料/
+* usage
+```python
+python generate_SVM_farm_data.py [--num num] 
+```
+| parameter | 說明 | e.g. |
+| -------- | -------- | -------- |
+| num     | 資料大小   | 100   |
+
+
 # transfer_to_numeric_feature.py
 檔案在 ./SVM模型 下
 
 將放在 SVM判別器的資料 做 feature engineering
 
 * usage
-```python
+```python=
 python transfer_to_numeric_feature.py [--d datafolder] [--B ifBOW] [--test Bool] 
 ```
 | parameter | 說明 | e.g. |
