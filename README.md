@@ -2,6 +2,22 @@
 
 ###### tags: `README`
 
+# tranfer_to_numeric_farm.py
+檔案在 .`/SVM農場模型` 下
+
+將放在 `SVM判別器農場資料` 做 feature engineering
+
+* usage
+```python=
+python python tranfer_to_numeric_farm.py [--d datafolder] [--B ifBOW] [--test Bool] 
+```
+| parameter | 說明 | e.g. |
+| -------- | -------- | -------- |
+| d    | 資料集名稱 (需放在)   |  Size_50  |
+| B    | 是否用 Bag-of-word Feature   | False   |
+| test   | 是否為測試   | False   |
+
+
 # generate_SVM_farm_data.py
 檔案在 ./SVM判別器農場資料/
 * usage
