@@ -27,15 +27,10 @@ def buf_func(file_):
         data = data[:2]  
     
     print("Start to deal with %s" % file_)
-    data_title = [i[0] for i in data]
-    data_numeric_title = [feature_func(i) for i in tqdm(data_title)]
-
-    data_body = [i[1] for i in data]
-    data_numeric_body = [feature_func(i) for i in tqdm(data_body)]
+    data_numeric = [feature_func(i[0]) + feature_func(i[1]) for i in tqdm(data)]
     
     # new add 
-    data_numeric = [ [ float(j) for j in i] 
-                    for i in data_numeric_title + data_numeric_body]
+    data_numeric = [ [ float(j) for j in i] for i in data_numeric]
 
     path = "./SVM_數值資料/%s/%s" % (args.d, file_)
     with open(path, 'w') as outfile:
